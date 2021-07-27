@@ -9,6 +9,13 @@
   </div>
 
   <div 
+    class="alert alert-info" 
+    *ngIf="message"
+  >
+    {{message}}
+  </div>
+
+  <div 
     class="form-control"
     [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}"
   >
@@ -19,10 +26,10 @@
       *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
     >
       <small *ngIf="form.get('email')?.errors?.required">
-        Enter email
+        Enter email!
       </small>
       <small *ngIf="form.get('email')?.errors?.email">
-        Email invalid
+        Email invalid!
       </small>
     </div>
   </div>
@@ -38,7 +45,7 @@
       *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
     >
       <small *ngIf="form.get('password')?.errors?.required">
-        Enter password
+        Enter password!
       </small>
       <small *ngIf="form.get('password')?.errors?.minlength">
         Password must be 
