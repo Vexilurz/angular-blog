@@ -1,24 +1,33 @@
-<div class="post">
-  <div class="header">
-    <h1>Post title</h1>
+<div *ngIf="post$ | async as post; else loading">
+  <div class="post">
+    <div class="header">
+      <h1>
+        {{post.title}}
+      </h1>
 
-    <button 
-      routerLink="/"
-      class="btn btn-link"
-    >
-      Home
-    </button>
-  </div>
+      <button 
+        routerLink="/"
+        class="btn btn-link"
+      >
+        Home
+      </button>
+    </div>
 
-  <div class="info">
-    <strong>Author</strong>
-    <small>11.11.1111</small>
-  </div>
+    <div class="info">
+      <strong>
+        {{post.author}}
+      </strong>
+      <small>
+        {{post.date | date:'medium':'':'ru'}}
+      </small>
+    </div>
 
-  <div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam debitis asperiores dignissimos laboriosam repudiandae quas placeat omnis mollitia ab at eligendi reiciendis blanditiis incidunt earum, ipsa eos. Nesciunt placeat perspiciatis eligendi excepturi mollitia vitae quis corporis reiciendis. Doloribus, adipisci? Laudantium, cupiditate impedit! Praesentium porro, autem culpa distinctio quod aperiam repellendus.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam debitis asperiores dignissimos laboriosam repudiandae quas placeat omnis mollitia ab at eligendi reiciendis blanditiis incidunt earum, ipsa eos. Nesciunt placeat perspiciatis eligendi excepturi mollitia vitae quis corporis reiciendis. Doloribus, adipisci? Laudantium, cupiditate impedit! Praesentium porro, autem culpa distinctio quod aperiam repellendus.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam debitis asperiores dignissimos laboriosam repudiandae quas placeat omnis mollitia ab at eligendi reiciendis blanditiis incidunt earum, ipsa eos. Nesciunt placeat perspiciatis eligendi excepturi mollitia vitae quis corporis reiciendis. Doloribus, adipisci? Laudantium, cupiditate impedit! Praesentium porro, autem culpa distinctio quod aperiam repellendus.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam debitis asperiores dignissimos laboriosam repudiandae quas placeat omnis mollitia ab at eligendi reiciendis blanditiis incidunt earum, ipsa eos. Nesciunt placeat perspiciatis eligendi excepturi mollitia vitae quis corporis reiciendis. Doloribus, adipisci? Laudantium, cupiditate impedit! Praesentium porro, autem culpa distinctio quod aperiam repellendus.</p>
+    <div>
+      <quill-view-html [content]="post.text"></quill-view-html>
+    </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <p class="text-center">Loading post...</p>
+</ng-template>
