@@ -19,8 +19,7 @@ export class AuthService {
       this.logout()
       return ''
     }
-    const t = localStorage.getItem('fb-token');
-    return t ? t : ''
+    return localStorage.getItem('fb-token') || ''; 
   }
 
   login(user: User): Observable<any> {
