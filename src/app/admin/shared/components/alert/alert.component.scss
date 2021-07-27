@@ -1,0 +1,18 @@
+.alert-wrap {
+  position: fixed;
+  top: 50px;
+  right: 40px;
+  max-width: 200px;
+}
+
+.alert-success {
+  background: green;
+}
+
+.alert-warning {
+  background: goldenrod;
+}
+
+.alert-danger {
+  background: brown;
+}
